@@ -9,23 +9,28 @@ function Tours() {
     const response = await fetch(
       "https://course-api.com/react-tours-project"
     ).then((response) => response.json());
+    console.log("response", response);
     setTours(response);
   };
   useEffect(() => {
     fetchTours();
   }, []);
-
   return (
     <div className="tours container">
       <div className="row">
         <div className="col">
-          {tours.map((tour) => (
-            <div className="item-container"> {tour.name}</div>
+          {/* <h2> Hello World</h2> */}
+          {tours?.map((tour) => (
+            <div key={tour.id} className="item-container">
+              {" "}
+              {tour.name}
+            </div>
           ))}
-          <Tour />
+          <Tour tours={tours} />
         </div>
       </div>
     </div>
   );
 }
+
 export default Tours;
