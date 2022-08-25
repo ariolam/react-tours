@@ -18,16 +18,9 @@ function Tours() {
   return (
     <div className="tours container">
       <div className="row">
-        <div className="col">
-          {/* <h2> Hello World</h2> */}
-          {tours?.map((tour) => (
-            <div key={tour.id} className="item-container">
-              {" "}
-              {tour.name}
-            </div>
-          ))}
-          <Tour tours={tours} />
-        </div>
+        {tours?.map((tour) => (
+          <Tour key={tour.id} tour={tour} />
+        ))}
       </div>
     </div>
   );
