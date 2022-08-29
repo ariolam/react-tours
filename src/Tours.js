@@ -5,6 +5,9 @@ import "./Tours.css";
 function Tours() {
   const [tours, setTours] = useState();
 
+  function removeTour(id) {
+    setTours([...tours].filter((tour) => tour.id !== id));
+  }
   const fetchTours = async () => {
     const response = await fetch(
       "https://course-api.com/react-tours-project"
@@ -19,7 +22,7 @@ function Tours() {
     <div className="tours container">
       <div className="row">
         {tours?.map((tour) => (
-          <Tour key={tour.id} tour={tour} />
+          <Tour key={tour.id} tour={tour} removeTour={removeTour} />
         ))}
       </div>
     </div>

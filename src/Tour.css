@@ -13,3 +13,14 @@ p {
 h5 {
   color: #f6c667;
 }
+button {
+  padding: 7px;
+  margin: auto;
+  border: 2px solid #f6c667;
+  background-color: #f6c667;
+  color: #f1f8fd;
+  font-size: 18px;
+}
+button:hover {
+  background-color: #007cb9;
+}
