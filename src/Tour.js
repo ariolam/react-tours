@@ -15,14 +15,14 @@ function Tour({ tour, removeTour }) {
           />
         </div>
         <div className="col-6">
-          <h4> {tour.name} </h4>
+          <h4 className="mt-2 mb-2"> {tour.name} </h4>
           <p>
             {showMore ? tour.info : `${tour.info.substring(0, 200)}`}
             <button className="show-btn" onClick={() => setShowMore(!showMore)}>
-              {showMore ? "Show less" : "Show more"}
+              {showMore ? "Read less" : "Read more"}
             </button>{" "}
           </p>
-          <h5> Price : {tour.price}</h5>
+          <h6> Price : {tour.price}</h6>
           <button className="mb-3" onClick={() => removeTour(tour.id)}>
             {" "}
             Not Interested{" "}

@@ -18,6 +18,11 @@ function Tours() {
   useEffect(() => {
     fetchTours();
   }, []);
+  useEffect(() => {
+    if (tours === 0) {
+      <h2> Hello </h2>;
+    }
+  }, [tours]);
   return (
     <div className="tours container">
       <div className="row">
