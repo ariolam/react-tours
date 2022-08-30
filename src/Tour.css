@@ -24,3 +24,9 @@ button {
 button:hover {
   background-color: #007cb9;
 }
+.show-btn {
+  color: #f6c667;
+  background-color: #007cb9;
+  font-size: 13px;
+  border: none;
+}
