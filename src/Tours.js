@@ -18,11 +18,14 @@ function Tours() {
   useEffect(() => {
     fetchTours();
   }, []);
-  useEffect(() => {
-    if (tours === 0) {
-      <h2> Hello </h2>;
-    }
-  }, [tours]);
+  if (tours?.length === 0) {
+    return (
+      <div>
+        <h1> There are no available tours </h1>;
+        <button onClick={fetchTours}> Refresh </button>
+      </div>
+    );
+  }
   return (
     <div className="tours container">
       <div className="row">
