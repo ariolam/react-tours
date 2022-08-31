@@ -4,23 +4,21 @@ import "./Tours.css";
 
 function Tours() {
   const [tours, setTours] = useState();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   function removeTour(id) {
     setTours([...tours].filter((tour) => tour.id !== id));
   }
   const fetchTours = async () => {
-    // setLoading(true);
+    setLoaded(true);
     const response = await fetch(
       "https://course-api.com/react-tours-project"
     ).then((response) => response.json());
     setTours(response);
+    setLoaded(false);
   };
   useEffect(() => {
     fetchTours();
-    setLoading(false);
-    setError(true);
   }, []);
   if (tours?.length === 0) {
     return (
@@ -33,9 +31,10 @@ function Tours() {
   return (
     <div className="tours container">
       <div className="row">
-        {error && <p> something went wrong</p>}
-        {loading ? (
-          <p> Loading </p>
+        {loaded ? (
+          <div className="spinner-grow text-warning" role="status">
+            <span className="sr-only"> Loading...</span>
+          </div>
         ) : (
           <ul>
             {tours?.map((tour) => (
