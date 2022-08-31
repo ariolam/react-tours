@@ -3,7 +3,7 @@ import Tour from "./Tour";
 import "./Tours.css";
 
 function Tours() {
-  const [tours, setTours] = useState();
+  const [tours, setTours] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
   function removeTour(id) {
@@ -22,8 +22,8 @@ function Tours() {
   }, []);
   if (tours?.length === 0) {
     return (
-      <div>
-        <h1> There are no available tours </h1>;
+      <div className="mt-5">
+        <h6> There are no available tours </h6>;
         <button onClick={fetchTours}> Refresh </button>
       </div>
     );
@@ -33,7 +33,7 @@ function Tours() {
       <div className="row">
         {loaded ? (
           <div className="spinner-grow text-warning" role="status">
-            <span className="sr-only"> Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         ) : (
           <ul>

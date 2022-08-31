@@ -22,7 +22,7 @@ function Tour({ tour, removeTour }) {
               {showMore ? "Read less" : "Read more"}
             </button>{" "}
           </p>
-          <h6> Price : {tour.price}</h6>
+          <h6> EUR: {tour.price} </h6>
           <button className="mb-3" onClick={() => removeTour(tour.id)}>
             {" "}
             Not Interested{" "}
